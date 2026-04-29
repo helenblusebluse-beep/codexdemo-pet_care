@@ -280,8 +280,12 @@ export default function Home() {
                   </select>
                 </label>
                 <label className="full">
+                  期望到店时间
+                  <input type="datetime-local" name="arrivalTime" />
+                </label>
+                <label className="full">
                   宠物情况
-                  <textarea name="message" placeholder="例如：体重、毛发打结、是否怕水怕吹风、希望到店时间" />
+                  <textarea name="message" placeholder="例如：体重、毛发打结、是否怕水怕吹风" />
                 </label>
                 <div className="submit-row">
                   <button className="button" type="button">
