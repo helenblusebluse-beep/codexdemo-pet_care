@@ -85,9 +85,36 @@ const steps = [
 ];
 
 const reviews = [
-  ["我家狗狗以前很怕吹风，这里护理师会先陪它熟悉环境，洗完状态特别放松。", "豆包主人"],
-  ["比熊造型修得很圆，眼周也处理得干净，回家后家里人都说像换了一只。", "奶油主人"],
-  ["价格提前说清楚，没有隐形加项。猫咪洗护也很温柔，过程会发照片。", "小满主人"],
+  {
+    quote: "我家狗狗以前很怕吹风，这里护理师会先陪它熟悉环境，洗完状态特别放松。",
+    author: "豆包主人",
+    service: "敏感犬洗护",
+  },
+  {
+    quote: "比熊造型修得很圆，眼周也处理得干净，回家后家里人都说像换了一只。",
+    author: "奶油主人",
+    service: "精致美容",
+  },
+  {
+    quote: "价格提前说清楚，没有隐形加项。猫咪洗护也很温柔，过程会发照片。",
+    author: "小满主人",
+    service: "猫咪洗护",
+  },
+  {
+    quote: "护理师会提醒皮肤发红的位置，还教我回家怎么梳毛，感觉不是只做一次生意。",
+    author: "可乐主人",
+    service: "皮毛护理",
+  },
+  {
+    quote: "店里没有刺鼻香味，洗完毛很蓬松但不干涩，预约时间也安排得很准。",
+    author: "糯米主人",
+    service: "清爽洗护",
+  },
+  {
+    quote: "短时寄养区很干净，接回来的时候精神很好，工作人员还把饮水和休息情况都说清楚了。",
+    author: "团子主人",
+    service: "短时寄养",
+  },
 ];
 
 export default function Home() {
@@ -224,14 +251,19 @@ export default function Home() {
               <h2>附近宠物主的真实反馈</h2>
               <p>我们更在意长期稳定的信任，所以每一次服务都从耐心开始。</p>
             </div>
-            <div className="review-grid">
-              {reviews.map(([quote, author]) => (
-                <article className="review" key={author}>
-                  <div className="stars">★★★★★</div>
-                  <p>{quote}</p>
-                  <strong>{author}</strong>
-                </article>
-              ))}
+            <div className="review-stage">
+              <div className="review-track">
+                {[false, true].map((isDuplicate) =>
+                  reviews.map((review) => (
+                    <article className="review" key={`${review.author}-${isDuplicate}`} aria-hidden={isDuplicate}>
+                      <div className="stars">★★★★★</div>
+                      <p>{review.quote}</p>
+                      <strong>{review.author}</strong>
+                      <span className="review-meta">{review.service}</span>
+                    </article>
+                  )),
+                )}
+              </div>
             </div>
           </div>
         </section>
