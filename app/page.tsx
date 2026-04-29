@@ -1,3 +1,5 @@
+import ArrivalTimeInput from "./ArrivalTimeInput";
+
 const navItems = [
   { href: "#services", label: "服务" },
   { href: "#prices", label: "套餐" },
@@ -313,7 +315,7 @@ export default function Home() {
                 </label>
                 <label className="full">
                   期望到店时间
-                  <input type="datetime-local" name="arrivalTime" />
+                  <ArrivalTimeInput />
                 </label>
                 <label className="full">
                   宠物情况
