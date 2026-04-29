@@ -541,8 +541,8 @@
 
     .booking-wrap {
       display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 34px;
+      grid-template-columns: 1fr;
+      gap: 28px;
       align-items: start;
     }
 
@@ -555,6 +555,7 @@
 
     .booking-copy p {
       margin: 0;
+      max-width: 760px;
       color: rgba(255, 255, 255, 0.78);
       font-size: 17px;
     }
@@ -567,7 +568,7 @@
     }
 
     .store-map {
-      margin: 28px 0 0;
+      margin: 30px 0 0;
       overflow: hidden;
       border: 1px solid rgba(255, 255, 255, 0.22);
       border-radius: 8px;
@@ -576,9 +577,10 @@
     }
 
     .store-map img {
+      display: block;
       width: 100%;
-      aspect-ratio: 16 / 9;
-      object-fit: cover;
+      height: auto;
+      object-fit: contain;
     }
 
     .store-map figcaption {
@@ -687,8 +689,7 @@
       .service-grid,
       .price-grid,
       .process-row,
-      .review-grid,
-      .booking-wrap {
+      .review-grid {
         grid-template-columns: 1fr 1fr;
       }
 
