@@ -1113,7 +1113,7 @@
             </label>
             <label class="full">
               期望到店时间
-              <input type="datetime-local" name="arrivalTime">
+              <input type="datetime-local" name="arrivalTime" id="arrivalTime">
             </label>
             <label class="full">
               宠物情况
@@ -1135,5 +1135,19 @@
       <span>专业洗护 · 透明流程 · 温柔对待每一只宝贝</span>
     </div>
   </footer>
+  <script>
+    const arrivalTimeInput = document.getElementById("arrivalTime");
+    if (arrivalTimeInput) {
+      const arrival = new Date();
+      arrival.setDate(arrival.getDate() + 1);
+      arrival.setHours(9, 30, 0, 0);
+
+      const year = arrival.getFullYear();
+      const month = String(arrival.getMonth() + 1).padStart(2, "0");
+      const day = String(arrival.getDate()).padStart(2, "0");
+
+      arrivalTimeInput.value = `${year}-${month}-${day}T09:30`;
+    }
+  </script>
 </body>
 </html>
